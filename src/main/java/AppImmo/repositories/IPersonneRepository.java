@@ -3,9 +3,9 @@ package AppImmo.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import AppImmo.entities.Client;
+import AppImmo.entities.Personne;
 
 @Repository
-public interface IClientRepository extends JpaRepository<Client, Long>{
+public interface IPersonneRepository extends JpaRepository<Personne, Long> {
 
 }

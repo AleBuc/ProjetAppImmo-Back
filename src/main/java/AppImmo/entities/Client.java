@@ -15,16 +15,16 @@ public class Client extends Personne {
 	
 	private long idContrat;
 	private List<Visite> visites;
-	private List<ClasseStandard> classestandard;
+	private List<ClasseStandard> classeStandard;
 	
 	public Client() {
 		super();
 	}
-	public Client(long idContrat, List<Visite> visites, List<ClasseStandard> classestandard) {
+	public Client(long idContrat, List<Visite> visites, List<ClasseStandard> classeStandard) {
 		super();
 		this.idContrat = idContrat;
 		this.visites = visites;
-		this.classestandard = classestandard;
+		this.classeStandard = classeStandard;
 	}
 	@Id
 	public long getIdContrat() {
@@ -39,11 +39,11 @@ public class Client extends Personne {
 	public void setVisites(List<Visite> visites) {
 		this.visites = visites;
 	}
-	public List<ClasseStandard> getClassesstandards() {
-		return classestandard;
+	public List<ClasseStandard> getClasseStandard() {
+		return classeStandard;
 	}
-	public void setClassesstandards(List<ClasseStandard> classesstandards) {
-		this.classestandard = classestandard;
+	public void setClasseStandard(List<ClasseStandard> classeStandard) {
+		this.classeStandard = classeStandard;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
