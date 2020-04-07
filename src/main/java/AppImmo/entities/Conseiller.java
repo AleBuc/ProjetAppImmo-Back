@@ -1,6 +1,6 @@
 package AppImmo.entities;
 
-public class Conseiller {
+public class Conseiller extends Utilisateur {
 
 	String nom;
 	String prenom;

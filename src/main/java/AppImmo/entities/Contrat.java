@@ -1,6 +1,6 @@
 package AppImmo.entities;
 
-public class Contrat extends Client {
+public class Contrat {
 
 long idContrat;
 Client client;
