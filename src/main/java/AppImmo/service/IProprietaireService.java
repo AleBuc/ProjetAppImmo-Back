@@ -1,4 +1,4 @@
-package AppImmo;
+package AppImmo.service;
 
 import java.util.List;
 
