@@ -2,10 +2,8 @@ package AppImmo.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
 public class Personne implements Serializable{
 	
 	/**
@@ -31,6 +29,7 @@ public class Personne implements Serializable{
 		this.adresse = adresse;
 		this.numeroTelephonePersonnel = numeroTelephonePersonnel;
 	}
+	
 	@Id
 	public long getId() {
 		return id;
