@@ -11,11 +11,11 @@ public interface IProprietaireService {
 
 	public Proprietaire update(Proprietaire p);
 
-	//public Proprietaire ajouterBienImmoAProprietaire(int id_p, BienImmo bienIm);
+	//public Proprietaire ajouterBienImmo(int id_p, BienImmo bienIm);
 	
-	public void delete(int id);
+	public void delete(long id);
 	
-	public Proprietaire getById(int id);
+	public Proprietaire getById(long id);
 	
 	public List<Proprietaire> getAll();
 }
