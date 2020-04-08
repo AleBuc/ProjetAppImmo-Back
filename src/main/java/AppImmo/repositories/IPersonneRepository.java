@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import AppImmo.entities.Personne;
 
-@Repository
+@Repository("personnerepo")
 public interface IPersonneRepository extends JpaRepository<Personne, Long> {
 
 }

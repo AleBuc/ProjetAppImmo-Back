@@ -2,7 +2,6 @@ package AppImmo.service;
 
 import java.util.List;
 
-import AppImmo.entities.BienImmo;
 import AppImmo.entities.Proprietaire;
 
 public interface IProprietaireService {

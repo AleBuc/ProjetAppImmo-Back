@@ -11,14 +11,14 @@ public interface IClientService {
 
 	public Client update(Client cl);
 
-	public void delete(int id);
+	public void delete(long id);
 	
-	public Client getById(int id);
+	public Client getById(long id);
 	
 	public List<Client> getAll();
 	
 //	public Client ajouterAdresseAClient(int id_cl,Adresse adr);
 	
-	public Client findByLogin(String login);
+//	public Client findByLogin(String login);
 
 }
