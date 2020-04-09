@@ -40,7 +40,7 @@ public class ProprietaireService implements IProprietaireService {
 	}
 
 	@Override
-	public List<Proprietaire> getAll() {
+	public List<Proprietaire> findAll() {
 		return proprietairerepo.findAll();
 	}
 

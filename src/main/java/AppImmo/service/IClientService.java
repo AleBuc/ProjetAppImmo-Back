@@ -15,7 +15,7 @@ public interface IClientService {
 	
 	public Client getById(long id);
 	
-	public List<Client> getAll();
+	public List<Client> findAll();
 	
 //	public Client ajouterAdresseAClient(int id_cl,Adresse adr);
 	

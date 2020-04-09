@@ -15,7 +15,7 @@ public interface IPersonneService {
 	
 	public Personne getById(long id);
 	
-	public List<Personne> getAll();
+	public List<Personne> findAll();
 	
 //	public Personne ajouterAdresse(long id_p, adresse adr);
 

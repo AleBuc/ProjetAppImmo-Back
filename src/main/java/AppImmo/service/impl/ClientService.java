@@ -39,7 +39,7 @@ public class ClientService implements IClientService{
 	}
 
 	@Override
-	public List<Client> getAll() {
+	public List<Client> findAll() {
 		return clientrepo.findAll();
 	}
 

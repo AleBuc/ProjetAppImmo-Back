@@ -16,5 +16,5 @@ public interface IProprietaireService {
 	
 	public Proprietaire getById(long id);
 	
-	public List<Proprietaire> getAll();
+	public List<Proprietaire> findAll();
 }

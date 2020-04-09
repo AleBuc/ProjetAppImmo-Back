@@ -40,7 +40,7 @@ public class PersonneService implements IPersonneService {
 	}
 
 	@Override
-	public List<Personne> getAll() {
+	public List<Personne> findAll() {
 		return personnerepo.findAll();
 	}
 	
