@@ -6,7 +6,7 @@ import AppImmo.entities.ClasseStandard;
 
 public interface IClasseStandardService {
 
-	public ClasseStandard saveOrUpdate(ClasseStandard ca);
+	public ClasseStandard saveOrUpdate(ClasseStandard cs);
 
 	public void delete(long id);
 
