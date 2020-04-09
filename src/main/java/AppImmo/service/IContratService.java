@@ -7,7 +7,7 @@ import AppImmo.entities.Contrat;
 public interface IContratService {
 	
 	 
-	    public void saveOrUpdate(Contrat ct);
+	    public Contrat saveOrUpdate(Contrat ct);
 	    public void delete(long id);
 	    public Contrat getById(long id);
 	    public List<Contrat> findAll();
