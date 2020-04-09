@@ -4,9 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
 
-import AppImmo.entities.Client;
+import AppImmo.entities.Contrat;
 
-@Repository("clientrepo")
-public interface IClientRepository extends JpaRepository<Client, Long>{
+@Repository
+public interface IContratRepository extends JpaRepository<Contrat, Long> {
 
 }
