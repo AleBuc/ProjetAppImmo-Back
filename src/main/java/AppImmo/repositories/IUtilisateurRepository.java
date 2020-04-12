@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import AppImmo.entities.Utilisateur;
 
-@Repository
+@Repository("urepo")
 public interface IUtilisateurRepository extends JpaRepository<Utilisateur, Long> {
+	Utilisateur findByLogin(String login);
 
 }
