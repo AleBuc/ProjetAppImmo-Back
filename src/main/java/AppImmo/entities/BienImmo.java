@@ -4,9 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import AppImmo.entities.Proprietaire;
 import AppImmo.entities.Contrat;
 
+@Entity
 public class BienImmo implements Serializable {
 
 	/**
@@ -43,6 +49,8 @@ public class BienImmo implements Serializable {
 		this.contrat = contrat;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getIdBien() {
 		return idBien;
 	}

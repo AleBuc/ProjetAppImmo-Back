@@ -3,9 +3,15 @@ package AppImmo.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import AppImmo.entities.Client;
 import AppImmo.entities.Conseiller;
 
+@Entity
 public class Visite implements Serializable {
 
 	/**
@@ -27,6 +33,9 @@ public class Visite implements Serializable {
 		this.client = client;
 		this.conseiller = conseiller;
 	}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getIdVisite() {
 		return idVisite;
 	}

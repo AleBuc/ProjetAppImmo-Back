@@ -2,8 +2,15 @@ package AppImmo.entities;
 
 import java.io.Serializable;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import AppImmo.entities.Client;
 
+@Entity
 public class ClasseStandard implements Serializable {
 
 	/**
@@ -30,6 +37,9 @@ public class ClasseStandard implements Serializable {
 		this.biens = biens;
 		this.client = client;
 	}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getIdClasse() {
 		return idClasse;
 	}
