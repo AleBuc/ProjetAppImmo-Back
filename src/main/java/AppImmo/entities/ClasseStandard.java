@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import AppImmo.entities.Client;
 
@@ -70,12 +73,16 @@ public class ClasseStandard implements Serializable {
 	public void setPrixMax(float prixMax) {
 		this.prixMax = prixMax;
 	}
+	
+	@ManyToMany
 	public List<BienImmo> getBiens() {
 		return biens;
 	}
 	public void setBiens(List<BienImmo> biens) {
 		this.biens = biens;
 	}
+	@ManyToOne
+	@JoinColumn(name = "client_id")
 	public List<Client> getClient() {
 		return client;
 	}

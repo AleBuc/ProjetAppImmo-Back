@@ -4,9 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import AppImmo.entities.Client;
 import AppImmo.entities.Conseiller;
@@ -20,20 +22,21 @@ public class Visite implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private long idVisite;
-	private long idBien;
+	private BienImmo bien;
 	private Date dateVisite;
 	private Client client;
 	private Conseiller conseiller;
 	public Visite() {
 	}
-	public Visite(long idVisite, long idBien, Date dateVisite, Client client, Conseiller conseiller) {
+	public Visite(long idVisite, BienImmo bien, Date dateVisite, Client client, Conseiller conseiller) {
 		this.idVisite = idVisite;
-		this.idBien = idBien;
+		this.bien = bien;
 		this.dateVisite = dateVisite;
 		this.client = client;
 		this.conseiller = conseiller;
 	}
-	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getIdVisite() {
@@ -42,11 +45,12 @@ public class Visite implements Serializable {
 	public void setIdVisite(long idVisite) {
 		this.idVisite = idVisite;
 	}
-	public long getIdBien() {
-		return idBien;
+	@ManyToOne(fetch = FetchType.LAZY)
+	public BienImmo getBien() {
+		return bien;
 	}
-	public void setIdBien(long idBien) {
-		this.idBien = idBien;
+	public void setBien(BienImmo bien) {
+		this.bien = bien;
 	}
 	public Date getDateVisite() {
 		return dateVisite;
@@ -54,12 +58,14 @@ public class Visite implements Serializable {
 	public void setDateVisite(Date dateVisite) {
 		this.dateVisite = dateVisite;
 	}
+	@ManyToOne(fetch = FetchType.LAZY)
 	public Client getClient() {
 		return client;
 	}
 	public void setClient(Client client) {
 		this.client = client;
 	}
+	@ManyToOne(fetch = FetchType.LAZY)
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
@@ -68,7 +74,9 @@ public class Visite implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Visite [idVisite=" + idVisite + ", idBien=" + idBien + ", dateVisite=" + dateVisite + "]";
+		return "Visite [idVisite=" + idVisite + ", bien=" + bien + ", dateVisite=" + dateVisite + ", client=" + client
+				+ ", conseiller=" + conseiller + "]";
 	}
+
 	
 }
