@@ -2,8 +2,9 @@ package AppImmo.entities;
 
 public class Utilisateur {
 
-String login;
-String password;
+private String login;
+private String password;
+
 public Utilisateur(String login, String password) {
 	super();
 	this.login = login;

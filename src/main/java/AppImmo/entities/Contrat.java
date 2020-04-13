@@ -2,12 +2,13 @@ package AppImmo.entities;
 
 public class Contrat {
 
-long idContrat;
-Client client;
-String referenceContrat;
-String dateAchat;
-int prixAchat;
-Conseiller conseiller;
+private long idContrat;
+private Client client;
+private String referenceContrat;
+private String dateAchat;
+private int prixAchat;
+private Conseiller conseiller;
+
 public Contrat() {
 	super();
 	// TODO Auto-generated constructor stub

@@ -2,11 +2,11 @@ package AppImmo.entities;
 
 public class Conseiller extends Utilisateur {
 
-	String nom;
-	String prenom;
-	String telephone;
-	String email;
-	String agence;
+	private String nom;
+	private String prenom;
+	private String telephone;
+	private String email;
+	private String agence;
 
 	@Override
 	public String toString() {
