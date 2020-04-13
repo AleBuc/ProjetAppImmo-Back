@@ -10,7 +10,7 @@ import AppImmo.entities.Client;
 import AppImmo.repositories.IClientRepository;
 import AppImmo.service.IClientService;
 
-@Service
+@Service("clientservice")
 public class ClientService implements IClientService{
 	
 	@Autowired

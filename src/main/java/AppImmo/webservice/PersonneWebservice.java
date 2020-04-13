@@ -3,6 +3,7 @@ package AppImmo.webservice;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,9 @@ import AppImmo.service.IPersonneService;
 @CrossOrigin("*")
 public class PersonneWebservice {
 	
-	@Autowired IPersonneService service;
+	@Autowired 
+	@Qualifier("personneservice")
+	private IPersonneService service;
 	
 	@RequestMapping(value="/add", method = RequestMethod.POST)
 	public Personne add(@RequestBody Personne p) {
@@ -40,7 +43,7 @@ public class PersonneWebservice {
 		return service.getById(id);
 	}
 	
-	@RequestMapping(value="/personne/{id}", method = RequestMethod.GET)
+	@RequestMapping(value="/personnes", method = RequestMethod.GET)
 	public List<Personne> findAll() {
 		return service.findAll();
 	}

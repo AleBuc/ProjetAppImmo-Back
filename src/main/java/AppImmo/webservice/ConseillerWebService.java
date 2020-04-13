@@ -39,7 +39,7 @@ public class ConseillerWebService {
 	}
 
 	@RequestMapping(value = "/conseiller/{id}", method = RequestMethod.GET)
-	public Conseiller ajout(@PathVariable long id) {
+	public Conseiller getById(@PathVariable long id) {
 		return service.getById(id);
 	}
 

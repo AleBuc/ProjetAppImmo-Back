@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import AppImmo.entities.Proprietaire;
 
-@Repository
+@Repository("proprietairerepo")
 public interface IProprietaireRepository extends JpaRepository<Proprietaire,Long> {
 
 }

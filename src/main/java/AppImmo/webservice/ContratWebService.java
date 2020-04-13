@@ -39,7 +39,7 @@ public class ContratWebService {
 	}
 
 	@RequestMapping(value = "/contrat/{id}", method = RequestMethod.GET)
-	public Contrat ajout(@PathVariable long id) {
+	public Contrat getById(@PathVariable long id) {
 		return service.getById(id);
 	}
 
