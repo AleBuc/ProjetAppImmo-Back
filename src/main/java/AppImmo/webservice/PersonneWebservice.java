@@ -28,7 +28,7 @@ public class PersonneWebservice {
 		return service.add(p);
 	}
 	
-	@RequestMapping(value="/update", method = RequestMethod.POST)
+	@RequestMapping(value="/update", method = RequestMethod.PUT)
 	public Personne update(@RequestBody Personne p) {
 		return service.update(p);
 	}

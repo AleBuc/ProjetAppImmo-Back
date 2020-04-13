@@ -28,7 +28,7 @@ public class ClientWebService {
 		return service.add(cl);
 	}
 	
-	@RequestMapping(value="/update", method = RequestMethod.POST)
+	@RequestMapping(value="/update", method = RequestMethod.PUT)
 	public Client update(@RequestBody Client cl) {
 		return service.update(cl);
 	}

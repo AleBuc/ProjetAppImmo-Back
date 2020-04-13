@@ -28,7 +28,7 @@ public class ProprietaireWebService {
 		return service.add(p);
 	}
 	
-	@RequestMapping(value="/update", method = RequestMethod.POST)
+	@RequestMapping(value="/update", method = RequestMethod.PUT)
 	public Proprietaire update(@RequestBody Proprietaire p) {
 		return service.update(p);
 	}
