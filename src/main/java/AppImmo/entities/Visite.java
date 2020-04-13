@@ -3,6 +3,7 @@ package AppImmo.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -42,7 +43,7 @@ public class Visite implements Serializable {
 	public void setIdVisite(long idVisite) {
 		this.idVisite = idVisite;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	public BienImmo getBien() {
 		return bien;
 	}
@@ -55,14 +56,14 @@ public class Visite implements Serializable {
 	public void setDateVisite(Date dateVisite) {
 		this.dateVisite = dateVisite;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public Client getClient() {
 		return client;
 	}
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
