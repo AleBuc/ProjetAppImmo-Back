@@ -1,5 +1,6 @@
 package AppImmo.entities;
 
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -73,7 +74,7 @@ public class Contrat {
 		this.prixAchat = prixAchat;
 	}
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	public Conseiller getConseiller() {
 		return conseiller;
 	}

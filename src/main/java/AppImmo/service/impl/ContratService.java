@@ -3,16 +3,18 @@ package AppImmo.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import AppImmo.entities.Contrat;
 import AppImmo.repositories.IContratRepository;
 import AppImmo.service.IContratService;
 
-@Service
+@Service("contservice")
 public class ContratService implements IContratService {
 
 	@Autowired
+	@Qualifier("contrepo")
 	private IContratRepository repo;
 
 	@Override

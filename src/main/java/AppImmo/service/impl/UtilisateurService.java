@@ -3,16 +3,18 @@ package AppImmo.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import AppImmo.entities.Utilisateur;
 import AppImmo.repositories.IUtilisateurRepository;
 import AppImmo.service.IUtilisateurService;
 
-@Service
+@Service("uservice")
 public class UtilisateurService implements IUtilisateurService {
 
 	@Autowired
+	@Qualifier("urepo")
 	private IUtilisateurRepository repo;
 
 	@Override
