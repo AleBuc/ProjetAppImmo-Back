@@ -16,7 +16,7 @@ import AppImmo.service.IClientService;
 
 @RestController
 @RequestMapping("/apiClient")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:8082/")
 public class ClientWebService {
 	
 	@Autowired 
