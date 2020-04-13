@@ -47,4 +47,5 @@ public class ClientWebService {
 	public List<Client> findAll() {
 		return service.findAll();
 	}
+	
 }
