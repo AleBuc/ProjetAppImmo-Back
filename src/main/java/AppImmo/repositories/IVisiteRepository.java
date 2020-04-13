@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import AppImmo.entities.Visite;
 
-@Repository("visiterepo")
+@Repository("vrepo")
 public interface IVisiteRepository extends JpaRepository<Visite, Long>{
 
 }

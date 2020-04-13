@@ -4,9 +4,20 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import AppImmo.entities.Proprietaire;
-import AppImmo.entities.Contrat;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "bien_immo")
 public class BienImmo implements Serializable {
 
 	/**
@@ -24,13 +35,13 @@ public class BienImmo implements Serializable {
 	private Proprietaire proprietaire;
 	private List<Visite> listVisites;
 	private Contrat contrat;
+	private List<ClasseStandard> classeStandard;
 	
 	public BienImmo() {
 	}
-
 	public BienImmo(long idBien, String typeBien, Date dateSoumission, String statut, String modeOffre,
 			String localisation, float revenuCadastral, Proprietaire proprietaire, List<Visite> listVisites,
-			Contrat contrat) {
+			Contrat contrat, List<ClasseStandard> classeStandard) {
 		this.idBien = idBien;
 		this.typeBien = typeBien;
 		this.dateSoumission = dateSoumission;
@@ -41,8 +52,13 @@ public class BienImmo implements Serializable {
 		this.proprietaire = proprietaire;
 		this.listVisites = listVisites;
 		this.contrat = contrat;
+		this.classeStandard = classeStandard;
 	}
 
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getIdBien() {
 		return idBien;
 	}
@@ -98,7 +114,8 @@ public class BienImmo implements Serializable {
 	public void setRevenuCadastral(float revenuCadastral) {
 		this.revenuCadastral = revenuCadastral;
 	}
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "proprietaire_id")
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}
@@ -107,14 +124,17 @@ public class BienImmo implements Serializable {
 		this.proprietaire = proprietaire;
 	}
 
+	@OneToMany(mappedBy = "bien")
 	public List<Visite> getListVisites() {
 		return listVisites;
 	}
-
+	
 	public void setListVisites(List<Visite> listVisites) {
 		this.listVisites = listVisites;
 	}
-
+	
+	@OneToOne
+	@JoinColumn(name = "contrat_id")
 	public Contrat getContrat() {
 		return contrat;
 	}
@@ -122,13 +142,23 @@ public class BienImmo implements Serializable {
 	public void setContrat(Contrat contrat) {
 		this.contrat = contrat;
 	}
-
+	@ManyToMany
+	@JoinColumn(name = "classestandard_id")
+	public List<ClasseStandard> getClasseStandard() {
+		return classeStandard;
+	}
+	public void setClasseStandard(List<ClasseStandard> classeStandard) {
+		this.classeStandard = classeStandard;
+	}
 	@Override
 	public String toString() {
-		return "bienImmo [idBien=" + idBien + ", typeBien=" + typeBien + ", dateSoumission=" + dateSoumission
+		return "BienImmo [idBien=" + idBien + ", typeBien=" + typeBien + ", dateSoumission=" + dateSoumission
 				+ ", statut=" + statut + ", modeOffre=" + modeOffre + ", localisation=" + localisation
-				+ ", revenuCadastral=" + revenuCadastral + ", listVisites=" + listVisites + "]";
+				+ ", revenuCadastral=" + revenuCadastral + ", proprietaire=" + proprietaire + ", listVisites="
+				+ listVisites + ", contrat=" + contrat + ", classeStandard=" + classeStandard + "]";
 	}
+
+
 	
 	
 	

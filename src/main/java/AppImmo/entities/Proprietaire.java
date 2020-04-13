@@ -3,6 +3,7 @@ package AppImmo.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Proprietaire extends Personne {
@@ -32,11 +33,12 @@ public class Proprietaire extends Personne {
 	public void setTelephonePro(String telephonePro) {
 		this.telephonePro = telephonePro;
 	}
-
+	
+	@OneToMany(mappedBy = "proprietaire")
 	public List<BienImmo> getBiensImmo() {
 		return biensImmo;
 	}
-
+	
 	public void setBiensImmo(List<BienImmo> biensImmo) {
 		this.biensImmo = biensImmo;
 	}

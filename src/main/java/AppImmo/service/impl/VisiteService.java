@@ -10,7 +10,7 @@ import AppImmo.entities.Visite;
 import AppImmo.repositories.IVisiteRepository;
 import AppImmo.service.IVisiteService;
 
-@Service("vrepo")
+@Service("vservice")
 public class VisiteService implements IVisiteService {
 
 	@Autowired

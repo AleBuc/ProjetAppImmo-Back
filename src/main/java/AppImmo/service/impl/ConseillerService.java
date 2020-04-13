@@ -3,16 +3,18 @@ package AppImmo.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import AppImmo.entities.Conseiller;
 import AppImmo.repositories.IConseillerRepository;
 import AppImmo.service.IConseillerService;
 
-@Service
+@Service("consservice")
 public class ConseillerService implements IConseillerService {
 
 	@Autowired
+	@Qualifier("consrepo")
 	private IConseillerRepository repo;
 
 	@Override

@@ -2,8 +2,18 @@ package AppImmo.entities;
 
 import java.io.Serializable;
 import java.util.List;
-import AppImmo.entities.Client;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class ClasseStandard implements Serializable {
 
 	/**
@@ -30,6 +40,9 @@ public class ClasseStandard implements Serializable {
 		this.biens = biens;
 		this.client = client;
 	}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getIdClasse() {
 		return idClasse;
 	}
@@ -60,12 +73,16 @@ public class ClasseStandard implements Serializable {
 	public void setPrixMax(float prixMax) {
 		this.prixMax = prixMax;
 	}
+	
+	@ManyToMany
 	public List<BienImmo> getBiens() {
 		return biens;
 	}
 	public void setBiens(List<BienImmo> biens) {
 		this.biens = biens;
 	}
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "client_id")
 	public List<Client> getClient() {
 		return client;
 	}

@@ -23,10 +23,9 @@ public class BienImmoWebservice {
 	@Qualifier("biservice")
 	private IBienImmoService service;
 
-	@RequestMapping(value = "/ajout", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public BienImmo ajout(@RequestBody BienImmo bi) {
 		return service.saveOrUpdate(bi);
-
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)

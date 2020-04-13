@@ -23,10 +23,9 @@ public class ClasseStandardWebservice {
 	@Qualifier("csservice")
 	private IClasseStandardService service;
 
-	@RequestMapping(value = "/ajout", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ClasseStandard ajout(@RequestBody ClasseStandard cs) {
 		return service.saveOrUpdate(cs);
-
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
