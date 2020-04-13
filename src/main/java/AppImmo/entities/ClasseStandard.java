@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -74,7 +73,7 @@ public class ClasseStandard implements Serializable {
 		this.prixMax = prixMax;
 	}
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "classeStandard")
 	public List<BienImmo> getBiens() {
 		return biens;
 	}
