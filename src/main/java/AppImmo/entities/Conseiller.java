@@ -1,17 +1,43 @@
 package AppImmo.entities;
 
-public class Conseiller extends Utilisateur {
+import java.util.List;
 
-	String nom;
-	String prenom;
-	String telephone;
-	String email;
-	String agence;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-	@Override
-	public String toString() {
-		return "Conseiller [nom=" + nom + ", prenom=" + prenom + ", telephone=" + telephone + ", email=" + email
-				+ ", agence=" + agence + "]";
+public class Conseiller {
+
+	private long idConseiller;
+	private String nom;
+	private String prenom;
+	private String telephone;
+	private String email;
+	private String agence;
+	private List<Visite> visites;
+	private List<Contrat> contrats;
+
+	public Conseiller() {
+	}
+
+	public Conseiller(long idConseiller, String nom, String prenom, String telephone, String email, String agence,
+			List<Visite> visites, List<Contrat> contrats) {
+		this.idConseiller = idConseiller;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.telephone = telephone;
+		this.email = email;
+		this.agence = agence;
+		this.visites = visites;
+		this.contrats = contrats;
+	}
+	
+	@Id
+	public long getIdConseiller() {
+		return idConseiller;
+	}
+
+	public void setIdConseiller(long idConseiller) {
+		this.idConseiller = idConseiller;
 	}
 
 	public String getNom() {
@@ -53,19 +79,30 @@ public class Conseiller extends Utilisateur {
 	public void setAgence(String agence) {
 		this.agence = agence;
 	}
-
-	public Conseiller(String nom, String prenom, String telephone, String email, String agence) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.telephone = telephone;
-		this.email = email;
-		this.agence = agence;
+	
+	@OneToMany(mappedBy="conseiller")
+	public List<Visite> getVisites() {
+		return visites;
 	}
 
-	public Conseiller() {
-		super();
-		// TODO Auto-generated constructor stub
-
+	public void setVisites(List<Visite> visites) {
+		this.visites = visites;
 	}
+	
+	@OneToMany(mappedBy="conseiller")
+	public List<Contrat> getContrats() {
+		return contrats;
+	}
+
+	public void setContrats(List<Contrat> contrats) {
+		this.contrats = contrats;
+	}
+
+	@Override
+	public String toString() {
+		return "Conseiller [idConseiller=" + idConseiller + ", nom=" + nom + ", prenom=" + prenom + ", telephone="
+				+ telephone + ", email=" + email + ", agence=" + agence + ", visites=" + visites + ", contrats="
+				+ contrats + "]";
+	}
+
 }

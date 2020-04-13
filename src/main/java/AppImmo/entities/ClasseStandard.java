@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import AppImmo.entities.Client;
-
 @Entity
 public class ClasseStandard implements Serializable {
 

@@ -10,9 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import AppImmo.entities.Client;
-import AppImmo.entities.Conseiller;
-
 @Entity
 public class Visite implements Serializable {
 

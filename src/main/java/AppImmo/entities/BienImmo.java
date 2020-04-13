@@ -15,9 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import AppImmo.entities.Proprietaire;
-import AppImmo.entities.Contrat;
-
 @Entity
 public class BienImmo implements Serializable {
 
