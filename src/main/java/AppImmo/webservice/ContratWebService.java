@@ -3,6 +3,8 @@ package AppImmo.webservice;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +15,15 @@ import AppImmo.entities.Contrat;
 import AppImmo.service.IContratService;
 
 @RestController
-@RequestMapping("application")
+@RequestMapping("/apiContrat")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ContratWebService {
 
 	@Autowired
+	@Qualifier("contservice")
 	private IContratService service;
 
-	@RequestMapping(value = "/ajout", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public Contrat ajout(@RequestBody Contrat ct) {
 		return service.saveOrUpdate(ct);
 	}
@@ -29,17 +33,17 @@ public class ContratWebService {
 		return service.saveOrUpdate(ct);
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public void delete(@PathVariable long id) {
 		service.delete(id);
 	}
 
-	@RequestMapping(value = "Contrat", method = RequestMethod.GET)
+	@RequestMapping(value = "/contrat/{id}", method = RequestMethod.GET)
 	public Contrat ajout(@PathVariable long id) {
 		return service.getById(id);
 	}
 
-	@RequestMapping(value = "/Contrats", method = RequestMethod.GET)
+	@RequestMapping(value = "/contrats", method = RequestMethod.GET)
 	public List<Contrat> findAll() {
 		return service.findAll();
 	}

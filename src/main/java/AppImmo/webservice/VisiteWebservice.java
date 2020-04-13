@@ -23,10 +23,9 @@ public class VisiteWebservice {
 	@Qualifier("vservice")
 	private IVisiteService service;
 
-	@RequestMapping(value = "/ajout", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public Visite ajout(@RequestBody Visite v) {
 		return service.saveOrUpdate(v);
-
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
