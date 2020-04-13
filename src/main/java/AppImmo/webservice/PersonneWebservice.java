@@ -16,7 +16,7 @@ import AppImmo.service.IPersonneService;
 
 @RestController
 @RequestMapping("/apiPersonne")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200/")
 public class PersonneWebservice {
 	
 	@Autowired 
