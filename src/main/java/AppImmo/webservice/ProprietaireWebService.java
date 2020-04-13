@@ -16,7 +16,7 @@ import AppImmo.service.IProprietaireService;
 
 @RestController
 @RequestMapping("/apiProprietaire")
-@CrossOrigin(origins = "http://localhost:8082/")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ProprietaireWebService {
 	
 	@Autowired
