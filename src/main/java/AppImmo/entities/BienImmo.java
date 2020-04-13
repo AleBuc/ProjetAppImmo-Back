@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -143,7 +144,7 @@ public class BienImmo implements Serializable {
 		this.contrat = contrat;
 	}
 	@ManyToMany
-	@JoinColumn(name = "classestandard_id")
+	@JoinTable(name = "bien_classe", joinColumns = @JoinColumn(name = "bien_id"), inverseJoinColumns = @JoinColumn(name = "classe_id"))
 	public List<ClasseStandard> getClasseStandard() {
 		return classeStandard;
 	}
