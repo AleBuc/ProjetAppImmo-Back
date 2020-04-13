@@ -1,5 +1,6 @@
 package AppImmo.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -43,7 +44,7 @@ public class Contrat {
 		this.idContrat = idContrat;
 	}
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	public Client getClient() {
 		return client;
 	}
@@ -76,7 +77,7 @@ public class Contrat {
 		this.prixAchat = prixAchat;
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
@@ -85,7 +86,7 @@ public class Contrat {
 		this.conseiller = conseiller;
 	}
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	public BienImmo getBienImmo() {
 		return bienImmo;
 	}
