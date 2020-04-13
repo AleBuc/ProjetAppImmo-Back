@@ -16,7 +16,7 @@ import AppImmo.service.IConseillerService;
 
 @RestController
 @RequestMapping("/apiConseiller")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:8082/")
 public class ConseillerWebService {
 
 	@Autowired

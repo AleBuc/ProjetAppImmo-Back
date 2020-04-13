@@ -16,7 +16,7 @@ import AppImmo.service.IContratService;
 
 @RestController
 @RequestMapping("/apiContrat")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:8082/")
 public class ContratWebService {
 
 	@Autowired
