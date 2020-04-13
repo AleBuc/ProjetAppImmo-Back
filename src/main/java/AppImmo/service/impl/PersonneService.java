@@ -10,11 +10,11 @@ import AppImmo.entities.Personne;
 import AppImmo.repositories.IPersonneRepository;
 import AppImmo.service.IPersonneService;
 
-@Service
+@Service("personneservice")
 public class PersonneService implements IPersonneService {
 
 	@Autowired
-	@Qualifier("personneclient")
+	@Qualifier("personnerepo")
 	private IPersonneRepository personnerepo;
 	
 	

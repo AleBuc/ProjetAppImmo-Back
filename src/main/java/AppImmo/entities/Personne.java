@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class Personne implements Serializable{
+public abstract class Personne implements Serializable{
 	
 	/**
 	 * 

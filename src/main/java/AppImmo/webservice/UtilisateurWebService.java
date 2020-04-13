@@ -39,7 +39,7 @@ public class UtilisateurWebService {
 	}
 
 	@RequestMapping(value = "/utilisateur/{id}", method = RequestMethod.GET)
-	public Utilisateur ajout(@PathVariable long id) {
+	public Utilisateur getById(@PathVariable long id) {
 		return service.getById(id);
 	}
 

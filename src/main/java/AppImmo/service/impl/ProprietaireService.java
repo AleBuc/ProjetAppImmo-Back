@@ -10,7 +10,7 @@ import AppImmo.entities.Proprietaire;
 import AppImmo.repositories.IProprietaireRepository;
 import AppImmo.service.IProprietaireService;
 
-@Service
+@Service("proprietaireservice")
 public class ProprietaireService implements IProprietaireService {
 
 	
