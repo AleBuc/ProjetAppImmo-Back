@@ -3,6 +3,8 @@ package AppImmo.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Client extends Personne {
@@ -26,7 +28,7 @@ public class Client extends Personne {
 		this.visites = visites;
 		this.classeStandard = classeStandard;
 	}
-
+	@OneToOne(mappedBy = "client")
 	public Contrat getContrat() {
 		return contrat;
 	}
@@ -34,7 +36,8 @@ public class Client extends Personne {
 	public void setContrat(Contrat contrat) {
 		this.contrat = contrat;
 	}
-
+	
+	@OneToMany(mappedBy = "client")
 	public List<Visite> getVisites() {
 		return visites;
 	}
@@ -42,7 +45,8 @@ public class Client extends Personne {
 	public void setVisites(List<Visite> visites) {
 		this.visites = visites;
 	}
-
+	
+	@OneToMany(mappedBy = "client")
 	public List<ClasseStandard> getClasseStandard() {
 		return classeStandard;
 	}

@@ -14,8 +14,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "bien_immo")
 public class BienImmo implements Serializable {
 
 	/**
@@ -122,7 +124,7 @@ public class BienImmo implements Serializable {
 		this.proprietaire = proprietaire;
 	}
 
-	@OneToMany(mappedBy = "bien_immo")
+	@OneToMany(mappedBy = "bien")
 	public List<Visite> getListVisites() {
 		return listVisites;
 	}
