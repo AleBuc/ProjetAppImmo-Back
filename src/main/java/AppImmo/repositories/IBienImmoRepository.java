@@ -1,12 +1,11 @@
 package AppImmo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import org.springframework.stereotype.Repository;
 
-import AppImmo.entities.Client;
+import AppImmo.entities.BienImmo;
 
-@Repository("clientrepo")
-public interface IClientRepository extends JpaRepository<Client, Long>{
+@Repository("birepo")
+public interface IBienImmoRepository extends JpaRepository<BienImmo, Long>{
 
 }

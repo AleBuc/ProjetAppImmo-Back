@@ -3,7 +3,6 @@ package AppImmo.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Entity
 public class Client extends Personne {
