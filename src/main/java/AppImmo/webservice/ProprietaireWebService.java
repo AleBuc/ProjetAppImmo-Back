@@ -16,7 +16,7 @@ import AppImmo.service.IProprietaireService;
 
 @RestController
 @RequestMapping("/apiProprietaire")
-@CrossOrigin(origins = "http://localhost:8082/")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ProprietaireWebService {
 	
 	@Autowired
@@ -28,7 +28,7 @@ public class ProprietaireWebService {
 		return service.add(p);
 	}
 	
-	@RequestMapping(value="/update", method = RequestMethod.POST)
+	@RequestMapping(value="/update", method = RequestMethod.PUT)
 	public Proprietaire update(@RequestBody Proprietaire p) {
 		return service.update(p);
 	}

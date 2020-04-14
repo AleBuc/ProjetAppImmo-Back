@@ -1,5 +1,6 @@
 package AppImmo.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -51,7 +52,7 @@ public class Utilisateur {
 		this.password = password;
 	}
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "conseiller_id", nullable = false)
 	public Conseiller getConseiller() {
 		return conseiller;

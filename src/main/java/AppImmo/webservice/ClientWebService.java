@@ -16,7 +16,7 @@ import AppImmo.service.IClientService;
 
 @RestController
 @RequestMapping("/apiClient")
-@CrossOrigin(origins = "http://localhost:8082/")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class ClientWebService {
 	
 	@Autowired 
@@ -28,7 +28,7 @@ public class ClientWebService {
 		return service.add(cl);
 	}
 	
-	@RequestMapping(value="/update", method = RequestMethod.POST)
+	@RequestMapping(value="/update", method = RequestMethod.PUT)
 	public Client update(@RequestBody Client cl) {
 		return service.update(cl);
 	}
@@ -47,4 +47,5 @@ public class ClientWebService {
 	public List<Client> findAll() {
 		return service.findAll();
 	}
+	
 }

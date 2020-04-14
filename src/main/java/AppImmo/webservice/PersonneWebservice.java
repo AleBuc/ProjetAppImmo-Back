@@ -16,7 +16,7 @@ import AppImmo.service.IPersonneService;
 
 @RestController
 @RequestMapping("/apiPersonne")
-@CrossOrigin("http://localhost:8082/")
+@CrossOrigin("http://localhost:4200/")
 public class PersonneWebservice {
 	
 	@Autowired 
@@ -28,7 +28,7 @@ public class PersonneWebservice {
 		return service.add(p);
 	}
 	
-	@RequestMapping(value="/update", method = RequestMethod.POST)
+	@RequestMapping(value="/update", method = RequestMethod.PUT)
 	public Personne update(@RequestBody Personne p) {
 		return service.update(p);
 	}

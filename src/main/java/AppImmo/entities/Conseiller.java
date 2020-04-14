@@ -2,6 +2,7 @@ package AppImmo.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -82,7 +83,7 @@ public class Conseiller {
 		this.agence = agence;
 	}
 	
-	@OneToMany(mappedBy="conseiller")
+	@OneToMany(mappedBy="conseiller", cascade = CascadeType.ALL)
 	public List<Visite> getVisites() {
 		return visites;
 	}
@@ -91,7 +92,7 @@ public class Conseiller {
 		this.visites = visites;
 	}
 	
-	@OneToMany(mappedBy="conseiller")
+	@OneToMany(mappedBy="conseiller", cascade = CascadeType.ALL)
 	public List<Contrat> getContrats() {
 		return contrats;
 	}

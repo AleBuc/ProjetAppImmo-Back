@@ -2,6 +2,7 @@ package AppImmo.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -34,7 +35,7 @@ public class Proprietaire extends Personne {
 		this.telephonePro = telephonePro;
 	}
 	
-	@OneToMany(mappedBy = "proprietaire")
+	@OneToMany(mappedBy = "proprietaire",cascade = CascadeType.ALL)
 	public List<BienImmo> getBiensImmo() {
 		return biensImmo;
 	}

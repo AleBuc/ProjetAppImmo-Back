@@ -3,6 +3,7 @@ package AppImmo.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -73,14 +74,14 @@ public class ClasseStandard implements Serializable {
 		this.prixMax = prixMax;
 	}
 	
-	@ManyToMany(mappedBy = "classeStandard")
+	@ManyToMany(mappedBy = "classeStandard", cascade = CascadeType.ALL)
 	public List<BienImmo> getBiens() {
 		return biens;
 	}
 	public void setBiens(List<BienImmo> biens) {
 		this.biens = biens;
 	}
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "client_id")
 	public List<Client> getClient() {
 		return client;

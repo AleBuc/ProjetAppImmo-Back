@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -115,7 +116,7 @@ public class BienImmo implements Serializable {
 	public void setRevenuCadastral(float revenuCadastral) {
 		this.revenuCadastral = revenuCadastral;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "proprietaire_id")
 	public Proprietaire getProprietaire() {
 		return proprietaire;
@@ -125,7 +126,7 @@ public class BienImmo implements Serializable {
 		this.proprietaire = proprietaire;
 	}
 
-	@OneToMany(mappedBy = "bien")
+	@OneToMany(mappedBy = "bien", cascade = CascadeType.ALL)
 	public List<Visite> getListVisites() {
 		return listVisites;
 	}
@@ -134,7 +135,7 @@ public class BienImmo implements Serializable {
 		this.listVisites = listVisites;
 	}
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "contrat_id")
 	public Contrat getContrat() {
 		return contrat;
@@ -143,7 +144,7 @@ public class BienImmo implements Serializable {
 	public void setContrat(Contrat contrat) {
 		this.contrat = contrat;
 	}
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "bien_classe", joinColumns = @JoinColumn(name = "bien_id"), inverseJoinColumns = @JoinColumn(name = "classe_id"))
 	public List<ClasseStandard> getClasseStandard() {
 		return classeStandard;
