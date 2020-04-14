@@ -17,9 +17,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "bien_immo")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class BienImmo implements Serializable {
 
 	/**
@@ -41,10 +47,9 @@ public class BienImmo implements Serializable {
 	
 	public BienImmo() {
 	}
-	public BienImmo(long idBien, String typeBien, Date dateSoumission, String statut, String modeOffre,
+	public BienImmo(String typeBien, Date dateSoumission, String statut, String modeOffre,
 			String localisation, float revenuCadastral, Proprietaire proprietaire, List<Visite> listVisites,
 			Contrat contrat, List<ClasseStandard> classeStandard) {
-		this.idBien = idBien;
 		this.typeBien = typeBien;
 		this.dateSoumission = dateSoumission;
 		this.statut = statut;
@@ -56,9 +61,25 @@ public class BienImmo implements Serializable {
 		this.contrat = contrat;
 		this.classeStandard = classeStandard;
 	}
-
-
-
+	public BienImmo(String typeBien, Date dateSoumission, String statut, String modeOffre,
+			String localisation, float revenuCadastral, Proprietaire proprietaire) {
+		this.typeBien = typeBien;
+		this.dateSoumission = dateSoumission;
+		this.statut = statut;
+		this.modeOffre = modeOffre;
+		this.localisation = localisation;
+		this.revenuCadastral = revenuCadastral;
+		this.proprietaire = proprietaire;
+	}
+	public BienImmo(String typeBien, Date dateSoumission, String statut, String modeOffre,
+			String localisation, float revenuCadastral) {
+		this.typeBien = typeBien;
+		this.dateSoumission = dateSoumission;
+		this.statut = statut;
+		this.modeOffre = modeOffre;
+		this.localisation = localisation;
+		this.revenuCadastral = revenuCadastral;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getIdBien() {
@@ -76,7 +97,7 @@ public class BienImmo implements Serializable {
 	public void setTypeBien(String typeBien) {
 		this.typeBien = typeBien;
 	}
-
+	@Temporal(TemporalType.DATE)
 	public Date getDateSoumission() {
 		return dateSoumission;
 	}
@@ -116,7 +137,7 @@ public class BienImmo implements Serializable {
 	public void setRevenuCadastral(float revenuCadastral) {
 		this.revenuCadastral = revenuCadastral;
 	}
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "proprietaire_id")
 	public Proprietaire getProprietaire() {
 		return proprietaire;
@@ -127,6 +148,7 @@ public class BienImmo implements Serializable {
 	}
 
 	@OneToMany(mappedBy = "bien", cascade = CascadeType.ALL)
+	@JsonIgnore
 	public List<Visite> getListVisites() {
 		return listVisites;
 	}
@@ -145,6 +167,7 @@ public class BienImmo implements Serializable {
 		this.contrat = contrat;
 	}
 	@ManyToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinTable(name = "bien_classe", joinColumns = @JoinColumn(name = "bien_id"), inverseJoinColumns = @JoinColumn(name = "classe_id"))
 	public List<ClasseStandard> getClasseStandard() {
 		return classeStandard;

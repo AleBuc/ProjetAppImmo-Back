@@ -4,9 +4,16 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class Proprietaire extends Personne {
 	
 	/**
@@ -36,6 +43,7 @@ public class Proprietaire extends Personne {
 	}
 	
 	@OneToMany(mappedBy = "proprietaire",cascade = CascadeType.ALL)
+	@JsonIgnore
 	public List<BienImmo> getBiensImmo() {
 		return biensImmo;
 	}
@@ -48,10 +56,7 @@ public class Proprietaire extends Personne {
 		return serialVersionUID;
 	}
 
-	@Override
-	public String toString() {
-		return "Proprietaire [telephonePro=" + telephonePro + "]";
-	}
+
 	
 	
 
