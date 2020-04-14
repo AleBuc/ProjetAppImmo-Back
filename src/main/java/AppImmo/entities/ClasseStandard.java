@@ -13,7 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class ClasseStandard implements Serializable {
 
 	/**
@@ -75,6 +79,7 @@ public class ClasseStandard implements Serializable {
 	}
 	
 	@ManyToMany(mappedBy = "classeStandard", cascade = CascadeType.ALL)
+	@JsonIgnore
 	public List<BienImmo> getBiens() {
 		return biens;
 	}

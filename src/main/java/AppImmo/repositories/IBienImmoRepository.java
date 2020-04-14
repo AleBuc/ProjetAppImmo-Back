@@ -15,7 +15,7 @@ public interface IBienImmoRepository extends JpaRepository<BienImmo, Long>{
 
 	public List<BienImmo> findByProprietaire(Proprietaire proprietaire);
 	
-	@Query("select bi from Bien_immo bi join bi.classe_standard cs where cs.id =:idcs and bi.statut=disponible ")
+	@Query("select bi from BienImmo bi join bi.classeStandard cs where cs.id =:idcs and bi.statut=disponible ")
 	public List<BienImmo> bienClassStand(@Param("idcs") float idClasseStandard);
 	
 }
