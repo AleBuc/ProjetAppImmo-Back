@@ -18,8 +18,8 @@ public class UtilisateurService implements IUtilisateurService {
 	private IUtilisateurRepository repo;
 
 	@Override
-	public Utilisateur saveOrUpdate(Utilisateur c) {
-		return repo.save(c);
+	public Utilisateur saveOrUpdate(Utilisateur u) {
+		return repo.save(u);
 	}
 
 	@Override
