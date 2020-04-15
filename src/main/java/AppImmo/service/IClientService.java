@@ -2,7 +2,9 @@ package AppImmo.service;
 
 import java.util.List;
 
+import AppImmo.entities.ClasseStandard;
 import AppImmo.entities.Client;
+import AppImmo.entities.Contrat;
 
 public interface IClientService {
 
@@ -17,8 +19,14 @@ public interface IClientService {
 	
 	public List<Client> findAll();
 	
-//	public Client ajouterAdresseAClient(int id_cl,Adresse adr);
 	
-//	public Client findByLogin(String login);
+	
+//	public List<Client>ClientBienSpe();
+	
+//	public List<Client>clientClassStand(List<ClasseStandard>classeStandard);
+	
+	public List<Client> clientBienAcquis(Contrat contrat);
+	
+//	public List<Client>ClientClassStandSpe();
 
 }
