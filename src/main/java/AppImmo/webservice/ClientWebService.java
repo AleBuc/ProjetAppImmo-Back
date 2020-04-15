@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import AppImmo.entities.Client;
-import AppImmo.entities.Contrat;
 import AppImmo.service.IClientService;
 
 @RestController
@@ -49,15 +48,12 @@ public class ClientWebService {
 		return service.findAll();
 	}
 	
-	@RequestMapping(value="/clients", method = RequestMethod.GET)
-	public List<Client> clientBienAcquis(@RequestBody Contrat contrat) {
-		return service.clientBienAcquis(contrat);
-	}
-
 	
 	
-	
-	
+//	@RequestMapping(value="/clients", method = RequestMethod.GET)
+//	public List<Client> clientBienAcquis(@RequestBody Contrat contrat) {
+//		return service.clientBienAcquis(contrat);
+//	}
 	
 //	@RequestMapping(value="/clients", method = RequestMethod.GET)
 //	public List<Client> ClientBienAcquis() {

@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import AppImmo.entities.BienImmo;
-import AppImmo.entities.ClasseStandard;
 import AppImmo.entities.Client;
-import AppImmo.entities.Contrat;
 import AppImmo.repositories.IClientRepository;
 import AppImmo.service.IClientService;
 
@@ -52,11 +49,11 @@ public class ClientService implements IClientService{
 //		return clientrepo.clientClassStand(List<ClasseStandard> classeStandard);
 //	}
 
-	@Override
-	public List<Client> clientBienAcquis(Contrat contrat) {
-
-		return clientrepo.clientBienAcquis(contrat);
-	}
+//	@Override
+//	public List<Client> clientBienAcquis(Contrat contrat) {
+//
+//		return clientrepo.clientBienAcquis(contrat);
+//	}
 
 
 
