@@ -1,7 +1,7 @@
 package AppImmo.entities;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -23,12 +23,12 @@ public class Visite implements Serializable {
 	
 	private long idVisite;
 	private BienImmo bien;
-	private Timestamp dateVisite;
+	private Date dateVisite;
 	private Client client;
 	private Conseiller conseiller;
 	public Visite() {
 	}
-	public Visite(long idVisite, BienImmo bien, Timestamp dateVisite, Client client, Conseiller conseiller) {
+	public Visite(long idVisite, BienImmo bien, Date dateVisite, Client client, Conseiller conseiller) {
 		this.idVisite = idVisite;
 		this.bien = bien;
 		this.dateVisite = dateVisite;
@@ -53,10 +53,10 @@ public class Visite implements Serializable {
 		this.bien = bien;
 	}
 	@Temporal(TemporalType.TIMESTAMP)
-	public Timestamp getDateVisite() {
+	public Date getDateVisite() {
 		return dateVisite;
 	}
-	public void setDateVisite(Timestamp dateVisite) {
+	public void setDateVisite(Date dateVisite) {
 		this.dateVisite = dateVisite;
 	}
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
