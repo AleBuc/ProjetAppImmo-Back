@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import AppImmo.entities.BienImmo;
 import AppImmo.entities.Proprietaire;
 import AppImmo.service.IProprietaireService;
 
@@ -48,6 +49,10 @@ public class ProprietaireWebService {
 		return service.findAll();
 	}
 	
+	@RequestMapping(value="/bienproprio/{id}", method = RequestMethod.GET)
+	public List<BienImmo> bienProprio(long id) {
+		return service.bienProprio(id);
 	
+	}
 
 }

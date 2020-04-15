@@ -30,7 +30,7 @@ public class BienImmo implements Serializable {
 	private long idBien;
 	private String typeBien;
 	private Date dateSoumission;
-	private String statut;
+	private String statut; //disponible, acheté, loué
 	private String modeOffre;
 	private String localisation;
 	private float revenuCadastral;
