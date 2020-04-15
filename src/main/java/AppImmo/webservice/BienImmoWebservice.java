@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import AppImmo.entities.BienImmo;
+import AppImmo.entities.Proprietaire;
 import AppImmo.service.IBienImmoService;
 
 @RestController
@@ -46,6 +47,16 @@ public class BienImmoWebservice {
 	@RequestMapping(value = "/biensimmos", method = RequestMethod.GET)
 	public List<BienImmo> findAll() {
 		return service.findAll();
+	}
+	
+	@RequestMapping(value = "/biparproprietaire", method = RequestMethod.GET)
+	public List<BienImmo> findByProprietaire(@RequestBody Proprietaire proprietaire) {
+		return service.findByProprietaire(proprietaire);
+	}
+	
+	@RequestMapping(value = "/bienClassStand/{id}", method = RequestMethod.GET)
+	public List<BienImmo> bienClassStand(@PathVariable long id) {
+		return service.bienClassStand(id);
 	}
 
 }

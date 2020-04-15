@@ -3,6 +3,7 @@ package AppImmo.service;
 import java.util.List;
 
 import AppImmo.entities.BienImmo;
+import AppImmo.entities.Proprietaire;
 
 public interface IBienImmoService {
 	
@@ -13,5 +14,9 @@ public interface IBienImmoService {
 	public BienImmo getById(long id);
 
 	public List<BienImmo> findAll();
+	
+	public List<BienImmo> findByProprietaire(Proprietaire proprietaire);
+	
+	public List<BienImmo> bienClassStand (float idClasseStandard);
 
 }

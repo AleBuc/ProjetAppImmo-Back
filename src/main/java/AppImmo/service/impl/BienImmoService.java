@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import AppImmo.entities.BienImmo;
+import AppImmo.entities.Proprietaire;
 import AppImmo.repositories.IBienImmoRepository;
 import AppImmo.service.IBienImmoService;
 
@@ -35,6 +36,16 @@ public class BienImmoService implements IBienImmoService {
 	@Override
 	public List<BienImmo> findAll() {
 		return repo.findAll();
+	}
+
+	@Override
+	public List<BienImmo> findByProprietaire(Proprietaire proprietaire) {
+		return repo.findByProprietaire(proprietaire);
+	}
+
+	@Override
+	public List<BienImmo> bienClassStand(float idClasseStandard) {
+		return repo.bienClassStand(idClasseStandard);
 	}
 
 }
