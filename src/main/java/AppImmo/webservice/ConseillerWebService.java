@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import AppImmo.entities.BienImmo;
 import AppImmo.entities.Conseiller;
 import AppImmo.service.IConseillerService;
 
@@ -47,5 +48,9 @@ public class ConseillerWebService {
 	public List<Conseiller> findAll() {
 		return service.findAll();
 	}
-
+	
+	@RequestMapping(value = "/bienacquis{id}", method = RequestMethod.GET)
+	public List<BienImmo> bienAcquis(@PathVariable long id) {
+		return service.bienAcquis(id);
+	}
 }

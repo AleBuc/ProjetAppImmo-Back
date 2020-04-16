@@ -5,9 +5,16 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Conseiller {
 
 	private long idConseiller;
@@ -84,6 +91,7 @@ public class Conseiller {
 	}
 	
 	@OneToMany(mappedBy="conseiller", cascade = CascadeType.ALL)
+	@JsonIgnore
 	public List<Visite> getVisites() {
 		return visites;
 	}
@@ -93,6 +101,7 @@ public class Conseiller {
 	}
 	
 	@OneToMany(mappedBy="conseiller", cascade = CascadeType.ALL)
+	@JsonIgnore
 	public List<Contrat> getContrats() {
 		return contrats;
 	}

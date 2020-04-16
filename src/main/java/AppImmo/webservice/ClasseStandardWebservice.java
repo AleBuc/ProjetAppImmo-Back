@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import AppImmo.entities.ClasseStandard;
+import AppImmo.entities.Client;
 import AppImmo.service.IClasseStandardService;
 
 @RestController
 @RequestMapping("/apiClasseStandard")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class ClasseStandardWebservice {
-	
+
 	@Autowired
 	@Qualifier("csservice")
 	private IClasseStandardService service;
@@ -47,4 +48,10 @@ public class ClasseStandardWebservice {
 	public List<ClasseStandard> findAll() {
 		return service.findAll();
 	}
+
+	@RequestMapping(value = "/classesstandardsint/{id}", method = RequestMethod.GET)
+	public List<Client> classeStandardInt(@PathVariable long id) {
+		return service.classeStandardInt(id);
+	}
+
 }

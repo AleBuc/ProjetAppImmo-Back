@@ -50,7 +50,7 @@ public class ProprietaireWebService {
 	}
 	
 	@RequestMapping(value="/bienproprio/{id}", method = RequestMethod.GET)
-	public List<BienImmo> bienProprio(long id) {
+	public List<BienImmo> bienProprio(@PathVariable long id) {
 		return service.bienProprio(id);
 	
 	}

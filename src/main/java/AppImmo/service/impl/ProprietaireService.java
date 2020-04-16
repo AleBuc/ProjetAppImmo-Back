@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import AppImmo.entities.BienImmo;
 import AppImmo.entities.Proprietaire;
-import AppImmo.repositories.IBienImmoRepository;
 import AppImmo.repositories.IProprietaireRepository;
 import AppImmo.service.IProprietaireService;
 
@@ -20,9 +19,6 @@ public class ProprietaireService implements IProprietaireService {
 	@Qualifier("proprietairerepo")
 	private IProprietaireRepository proprietairerepo;
 
-	@Autowired
-	@Qualifier("birepo")
-	private IBienImmoRepository repo;
 
 	@Override
 	public Proprietaire add(Proprietaire p) {

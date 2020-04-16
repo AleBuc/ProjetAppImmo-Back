@@ -9,11 +9,18 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ClasseStandard implements Serializable {
 
 	/**
@@ -75,6 +82,7 @@ public class ClasseStandard implements Serializable {
 	}
 	
 	@ManyToMany(mappedBy = "classeStandard", cascade = CascadeType.ALL)
+	@JsonIgnore
 	public List<BienImmo> getBiens() {
 		return biens;
 	}
@@ -82,6 +90,7 @@ public class ClasseStandard implements Serializable {
 		this.biens = biens;
 	}
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinColumn(name = "client_id")
 	public List<Client> getClient() {
 		return client;

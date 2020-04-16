@@ -1,12 +1,15 @@
 package AppImmo.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import AppImmo.entities.BienImmo;
 import AppImmo.entities.Conseiller;
+import AppImmo.entities.Contrat;
 import AppImmo.repositories.IConseillerRepository;
 import AppImmo.service.IConseillerService;
 
@@ -37,6 +40,15 @@ public class ConseillerService implements IConseillerService {
 		return repo.findAll();
 	}
 
-
+	@Override
+	public List<BienImmo> bienAcquis(long id) {
+		List<BienImmo> listeacquis = new ArrayList<BienImmo>();
+		Conseiller cl = this.getById(id);
+		List<Contrat> liste = cl.getContrats();
+		for (Contrat c : liste) {
+			listeacquis.add(c.getBienImmo());
+		}
+		return listeacquis;
+	}
 
 }

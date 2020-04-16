@@ -12,65 +12,40 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import AppImmo.entities.Client;
-import AppImmo.entities.Contrat;
 import AppImmo.service.IClientService;
 
 @RestController
 @RequestMapping("/apiClient")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class ClientWebService {
-	
-	@Autowired 
+
+	@Autowired
 	@Qualifier("clientservice")
 	private IClientService service;
-	
-	@RequestMapping(value="/add", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public Client add(@RequestBody Client cl) {
 		return service.add(cl);
 	}
-	
-	@RequestMapping(value="/update", method = RequestMethod.PUT)
+
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public Client update(@RequestBody Client cl) {
 		return service.update(cl);
 	}
-	
-	@RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE)
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public void delete(@PathVariable long id) {
 		service.delete(id);
 	}
-	
-	@RequestMapping(value="/client/{id}", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/client/{id}", method = RequestMethod.GET)
 	public Client getById(@PathVariable long id) {
 		return service.getById(id);
 	}
-	
-	@RequestMapping(value="/clients", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/clients", method = RequestMethod.GET)
 	public List<Client> findAll() {
 		return service.findAll();
 	}
-	
-	@RequestMapping(value="/clients", method = RequestMethod.GET)
-	public List<Client> clientBienAcquis(@RequestBody Contrat contrat) {
-		return service.clientBienAcquis(contrat);
-	}
 
-	
-	
-	
-	
-	
-//	@RequestMapping(value="/clients", method = RequestMethod.GET)
-//	public List<Client> ClientBienAcquis() {
-//		return service.ClientBienAcquis();
-//	}
-//
-//	@RequestMapping(value="/clients", method = RequestMethod.GET)
-//	public List<Client> ClientClassStandSpe() {
-//		return service.ClientClassStandSpe();
-//	}
-//	
-//	@RequestMapping(value="/clients", method = RequestMethod.GET)
-//	public List<Client> ClientBienSpe() {
-//		return service.ClientBienSpe();
-//	}
 }

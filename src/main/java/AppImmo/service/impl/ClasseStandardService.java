@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import AppImmo.entities.ClasseStandard;
+import AppImmo.entities.Client;
 import AppImmo.repositories.IClasseStandardRepository;
 import AppImmo.service.IClasseStandardService;
 
@@ -37,4 +38,9 @@ public class ClasseStandardService implements IClasseStandardService {
 		return repo.findAll();
 	}
 
+	@Override
+	public List<Client> classeStandardInt(long id) {
+		ClasseStandard cs = this.getById(id);
+		return cs.getClient();
+	}
 }

@@ -6,16 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import AppImmo.entities.BienImmo;
-import AppImmo.entities.ClasseStandard;
 import AppImmo.entities.Client;
-import AppImmo.entities.Contrat;
 import AppImmo.repositories.IClientRepository;
 import AppImmo.service.IClientService;
 
 @Service("clientservice")
-public class ClientService implements IClientService{
-	
+public class ClientService implements IClientService {
+
 	@Autowired
 	@Qualifier("clientrepo")
 	private IClientRepository clientrepo;
@@ -33,7 +30,7 @@ public class ClientService implements IClientService{
 	@Override
 	public void delete(long id) {
 		clientrepo.deleteById(id);
-		
+
 	}
 
 	@Override
@@ -45,24 +42,5 @@ public class ClientService implements IClientService{
 	public List<Client> findAll() {
 		return clientrepo.findAll();
 	}
-
-//	@Override
-//	public List<Client> clientClassStand(List<ClasseStandard> classeStandard) {
-//
-//		return clientrepo.clientClassStand(List<ClasseStandard> classeStandard);
-//	}
-
-	@Override
-	public List<Client> clientBienAcquis(Contrat contrat) {
-
-		return clientrepo.clientBienAcquis(contrat);
-	}
-
-
-
-
-
-	
-	
 
 }

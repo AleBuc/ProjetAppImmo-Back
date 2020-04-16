@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import AppImmo.entities.BienImmo;
+import AppImmo.entities.Client;
 import AppImmo.service.IBienImmoService;
 
 @RestController
@@ -48,4 +49,9 @@ public class BienImmoWebservice {
 		return service.findAll();
 	}
 
+	@RequestMapping(value = "/biensimmosparticulier/{id}", method = RequestMethod.GET)
+	public List<Client> bienImmoParticulier(long id) {
+		return service.bienImmoParticulier(id);
+
+	}
 }

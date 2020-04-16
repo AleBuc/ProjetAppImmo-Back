@@ -38,5 +38,4 @@ public class ContratService implements IContratService {
 	}
 
 
-
 }

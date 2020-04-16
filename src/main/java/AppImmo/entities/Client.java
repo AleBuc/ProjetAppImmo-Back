@@ -2,12 +2,20 @@ package AppImmo.entities;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Client extends Personne {
 
 	/**
@@ -39,6 +47,7 @@ public class Client extends Personne {
 	}
 	
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+	@JsonIgnore
 	public List<Visite> getVisites() {
 		return visites;
 	}
@@ -48,6 +57,7 @@ public class Client extends Personne {
 	}
 	
 	@OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
+	@JsonIgnore
 	public List<ClasseStandard> getClasseStandard() {
 		return classeStandard;
 	}
