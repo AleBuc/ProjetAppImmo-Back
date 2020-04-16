@@ -31,7 +31,7 @@ public class ClasseStandardWebservice {
 
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public ClasseStandard update(@RequestBody ClasseStandard cs) {
-		return service.saveOrUpdate(cs);
+		return service.saveOrUpdate(cs);   
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
@@ -44,7 +44,7 @@ public class ClasseStandardWebservice {
 		return service.getById(id);
 	}
 
-	@RequestMapping(value = "/classesstandards", method = RequestMethod.GET)
+	@RequestMapping(value = "/classesstandards", method = RequestMethod.GET) //GET
 	public List<ClasseStandard> findAll() {
 		return service.findAll();
 	}
